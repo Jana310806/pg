@@ -19,7 +19,6 @@ class Zamestnanec(ABC):
         return f"Zamestnanec {self.jmeno}, odpracovanych let {self.pocet_odpracovanych_let}, zakladni mzda {self.zakladni_mzda} Kc"
 
 
-# --- TOTO DOPLŇUJEŠ TY ---
 
 class Programator(Zamestnanec):
     # Programátor nemá speciální init, takže ho psát nemusím (zdědí se)

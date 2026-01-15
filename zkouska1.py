@@ -1,59 +1,55 @@
 import math
 
 def statistika(rezim, cisla):
-    # 1. Nejdřív vyřešíme prázdný seznam (kromě součtu a počtu, ty mají být 0)
-    # Pokud je seznam prázdný, nemůžeme hledat max/min/průměr -> vracíme None
+    
     if not cisla:
         if rezim == "soucet" or rezim == "pocet":
             return 0
         return None
 
-    # 2. Režim SOUČET (Sum)
     if rezim == "soucet":
         vysledek = 0
-        for cislo in cisla:      # Projdi každé číslo
-            vysledek += cislo    # Přičti ho k výsledku
+        for cislo in cisla:      
+            vysledek += cislo    
         return vysledek
 
-    # 3. Režim POČET (Count)
     elif rezim == "pocet":
         pocitadlo = 0
-        for cislo in cisla:      # Projdi každé číslo
-            pocitadlo += 1       # Zvyš počítadlo o 1 (čárkař)
+        for cislo in cisla:      
+            pocitadlo += 1       
         return pocitadlo
 
-    # 4. Režim MAX (Maximum)
+
     elif rezim == "max":
-        nejvetsi = cisla[0]      # Tipnu si, že první je největší
+        nejvetsi = cisla[0]      
         for cislo in cisla:
-            if cislo > nejvetsi: # Když najdu větší...
-                nejvetsi = cislo # ...tak si ho zapamatuju
+            if cislo > nejvetsi: 
+                nejvetsi = cislo 
         return nejvetsi
 
-    # 5. Režim MIN (Minimum)
+    
     elif rezim == "min":
-        nejmensi = cisla[0]      # Tipnu si, že první je nejmenší
+        nejmensi = cisla[0]      
         for cislo in cisla:
-            if cislo < nejmensi: # Když najdu menší...
-                nejmensi = cislo # ...tak si ho zapamatuju
+            if cislo < nejmensi: 
+                nejmensi = cislo 
         return nejmensi
 
-    # 6. Režim PRŮMĚR (Average)
+    
     elif rezim == "prumer":
-        # Spočítám součet a počet ručně (jako nahoře)
+        
         soucet_cisel = 0
         pocet_cisel = 0
         for cislo in cisla:
             soucet_cisel += cislo
             pocet_cisel += 1
         
-        # Vydělím to
+        
         return soucet_cisel / pocet_cisel
 
-    # Pokud zadali nesmyslný režim
     return None
 
-# --- Testovací část ---
+
 if __name__ == "__main__":
     def test_statistika():
         assert statistika("soucet", [1, 2, 3, 4]) == 10
